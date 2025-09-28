@@ -11,7 +11,7 @@
   },
     {
       "data": {"graticule": true},
-      "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5}
+      "mark": {"type": "geoshape", "stroke": "gray", "strokeWidth": 0.25}
     },
     {
       "data": {
@@ -42,8 +42,8 @@
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [15, 30, 45],
-            "range": ["#fff5eb", "#fdae6b", "#e6550d", "#a63603"]
+            "domain": [10, 20, 30, 40],
+           "range": ["#feeada", "#fdae6b", "#f07b3f", "#c84b1a", "#8c2d0f"]
           },
           "legend": {"title": "Number of Mentions"}
         },
