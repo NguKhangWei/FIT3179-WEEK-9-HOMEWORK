@@ -11,15 +11,9 @@
       width: 100%;
       height: 100%;
     }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f0f0f0; /* optional, makes map pop */
-    }
     #vis {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
@@ -29,9 +23,12 @@
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "title": "IMO Participation by Country",
+      "width": "container",
+      "height": "container",
       "autosize": {
         "type": "fit",
-        "contains": "padding"
+        "contains": "padding",
+        "resize": true
       },
       "projection": {"type": "equalEarth"},
       "layer": [
@@ -83,8 +80,7 @@
             ]
           }
         }
-      ],
-      "config": {}
+      ]
     };
 
     vegaEmbed("#vis", spec, {mode: "vega-lite", renderer: "canvas"}).then(console.log).catch(console.warn);
