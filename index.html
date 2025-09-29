@@ -1,4 +1,14 @@
-{
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "IMO Participation by Country",
   "width": 800,
@@ -35,7 +45,7 @@
           "as": "count"
         }
       ],
-      "mark": {"type": "geoshape"},
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
       "encoding": {
         "color": {
           "field": "count",
@@ -47,13 +57,18 @@
 
 
           },
-          "legend": {"title": "Number of Mentions"}
+          "legend": {"title": "Number of Participations"}
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "count", "type": "quantitative", "title": "Number of Mentions"}
+          {"field": "count", "type": "quantitative", "title": "Number of Participations"}
         ]
       }
     }
-  ]
+  ],
+  "config": {}
 }
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
