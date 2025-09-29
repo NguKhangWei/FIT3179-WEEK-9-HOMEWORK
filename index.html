@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>IMO Participation by Country</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
@@ -13,7 +15,7 @@
     }
     #vis {
       width: 100%;
-      height: 100%;
+      height: 100vh; /* full viewport height */
     }
   </style>
 </head>
@@ -23,12 +25,9 @@
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "title": "IMO Participation by Country",
-      "width": "container",
-      "height": "container",
       "autosize": {
         "type": "fit",
-        "contains": "padding",
-        "resize": true
+        "contains": "padding"
       },
       "projection": {"type": "equalEarth"},
       "layer": [
@@ -83,7 +82,9 @@
       ]
     };
 
-    vegaEmbed("#vis", spec, {mode: "vega-lite", renderer: "canvas"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis", spec, {mode: "vega-lite", renderer: "canvas"})
+      .then(result => console.log("Vega-Lite rendered successfully"))
+      .catch(console.error);
   </script>
 </body>
 </html>
